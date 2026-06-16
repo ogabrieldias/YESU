@@ -22,7 +22,7 @@ export default function HomePage() {
       <Preloader />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <div className="p-2 sm:p-4 md:p-6 space-y-4 sm:space-y-6">
+          <div className="space-y-8 md:space-y-12">
             <div className="relative rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-white/5 isolate bg-obsidian">
               <ParticleBackgroundWrapper />
               <HeroSection />

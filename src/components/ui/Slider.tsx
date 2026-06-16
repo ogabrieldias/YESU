@@ -27,7 +27,7 @@ export function Slider({ min, max, step = 1, value, onValueChange, onChange, ...
       step={step}
       value={value}
       onChange={handleChange}
-      className="w-full h-1 rounded-full appearance-none cursor-pointer"
+      className="w-full h-2 rounded-full appearance-none cursor-pointer"
       style={{
         background: `linear-gradient(to right, #FF6B00 ${percent}%, #1a1a1a ${percent}%)`,
         ...props.style,

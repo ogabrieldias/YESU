@@ -96,7 +96,7 @@ export function ProductPageClient({ product }: Props) {
   return (
     <div className="min-h-screen bg-void pt-24">
       {/* Back nav */}
-      <div className="max-w-7xl mx-auto px-6 py-6">
+      <div className="container-wide py-6">
         <a
           href="/#catalogo"
           className="inline-flex items-center gap-2 text-steel hover:text-white transition-colors duration-300 text-sm cursor-none"
@@ -106,8 +106,8 @@ export function ProductPageClient({ product }: Props) {
       </div>
 
       {/* Hero */}
-      <section ref={heroRef} className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section ref={heroRef} className="container-wide pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Image */}
           <div className="sticky top-28">
             {/* Main image */}
@@ -196,7 +196,7 @@ export function ProductPageClient({ product }: Props) {
             </div>
 
             {/* Price */}
-            <div data-hero-item className="p-6 rounded-2xl border border-white/8 bg-obsidian mb-8">
+            <div data-hero-item className="p-8 rounded-2xl border border-white/8 bg-obsidian mb-8 ds-card">
               <div className="text-steel text-xs mb-1 uppercase tracking-wider">Preço</div>
               <div className="text-4xl font-black text-white mb-1">{formatPrice(product.price)}</div>
               <div className="text-steel text-sm">
@@ -210,7 +210,7 @@ export function ProductPageClient({ product }: Props) {
             </div>
 
             {/* CTAs */}
-            <div data-hero-item className="flex gap-4">
+            <div data-hero-item className="flex gap-6">
               <MagneticButton
                 href={generateWhatsAppUrl(product.name)}
                 target="_blank"
@@ -230,7 +230,7 @@ export function ProductPageClient({ product }: Props) {
 
       {/* Specs */}
       <section className="py-20 bg-obsidian border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="container-wide">
           <h2 className="text-3xl font-black text-white mb-12 text-center">Especificações Técnicas</h2>
           <div ref={specsRef} className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {product.specs.map((spec) => (
@@ -257,8 +257,8 @@ export function ProductPageClient({ product }: Props) {
 
       {/* Highlights */}
       <section className="py-20 bg-void">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="container-wide">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div>
               <h2 className="text-3xl font-black text-white mb-4">Diferenciais</h2>
               <p className="text-steel mb-10">{product.longDescription}</p>
@@ -279,7 +279,7 @@ export function ProductPageClient({ product }: Props) {
             </div>
 
             {/* Final CTA */}
-            <div className="p-10 rounded-3xl border border-white/8 bg-obsidian text-center">
+            <div className="p-12 rounded-3xl border border-white/8 bg-obsidian text-center ds-card">
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{ background: `${product.accentColor}15`, border: `2px solid ${product.accentColor}30` }}

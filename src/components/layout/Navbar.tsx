@@ -76,7 +76,7 @@ export function Navbar() {
           ref={navRef}
           id="navbar"
           className={cn(
-            "w-full max-w-7xl transition-all duration-500 opacity-0 rounded-[2rem] border pointer-events-auto",
+            "w-full max-w-[1400px] transition-all duration-500 opacity-0 rounded-[2rem] border pointer-events-auto",
             scrolled
               ? "py-3 px-6 sm:px-8 bg-obsidian/80 backdrop-blur-xl border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
               : "py-4 px-6 sm:px-8 bg-transparent border-transparent"
@@ -102,21 +102,21 @@ export function Navbar() {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-chrome text-sm tracking-wider uppercase hover:text-white hover:text-electric transition-colors duration-300 cursor-none relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-electric transition-all duration-300 group-hover:w-full" />
-              </button>
-            ))}
+           <div className="hidden lg:flex items-center gap-10">
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-chrome text-base tracking-wider uppercase hover:text-white hover:text-electric transition-colors duration-300 cursor-none relative group px-3 py-2"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-electric transition-all duration-300 group-hover:w-full" />
+                </button>
+              ))}
           </div>
 
           {/* CTA + Mobile Menu */}
-          <div className="flex items-center gap-4">
+           <div className="flex items-center gap-6">
             <MagneticButton
               href={generateWhatsAppUrl()}
               target="_blank"
@@ -124,7 +124,7 @@ export function Navbar() {
               variant="primary"
               size="sm"
               id="nav-whatsapp-cta"
-              className="hidden md:inline-flex"
+              className="hidden md:inline-flex ds-cta-primary"
             >
               Falar no WhatsApp
             </MagneticButton>

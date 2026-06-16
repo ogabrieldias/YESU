@@ -48,7 +48,7 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-4 p-6 text-left cursor-none"
+        className="w-full flex items-center gap-4 p-8 text-left cursor-none"
       >
         {/* Number */}
         <span
@@ -77,7 +77,7 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
         ref={contentRef}
         style={{ height: 0, overflow: "hidden" }}
       >
-        <div className="px-6 pb-6 pl-16">
+        <div className="px-8 pb-8 pl-20">
           <p className="text-steel text-sm leading-relaxed">{item.answer}</p>
         </div>
       </div>
@@ -134,13 +134,13 @@ export function FAQSection() {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative py-32 bg-obsidian overflow-hidden"
+      className="relative py-[120px] bg-obsidian overflow-hidden"
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric/30 to-transparent" />
 
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="container-wide max-w-4xl mx-auto">
         {/* Header */}
-        <div ref={titleRef} className="text-center mb-16">
+        <div ref={titleRef} className="text-center mb-12">
           <p className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase mb-6">
             <span className="w-8 h-px bg-electric" />
             FAQ
@@ -165,7 +165,7 @@ export function FAQSection() {
         </div>
 
         {/* FAQ List */}
-        <div ref={listRef} className="space-y-3">
+        <div ref={listRef} className="space-y-6">
           {faqItems.map((item, i) => (
             <div key={item.id} className="faq-item">
               <FAQItem item={item} index={i} />

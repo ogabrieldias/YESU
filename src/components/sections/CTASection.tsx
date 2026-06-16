@@ -86,7 +86,7 @@ export function CTASection() {
     <section
       ref={sectionRef}
       id="cta-final"
-      className="relative py-40 bg-void overflow-hidden"
+      className="relative py-[160px] bg-void overflow-hidden"
     >
       {/* Particle field */}
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none" />
@@ -104,7 +104,7 @@ export function CTASection() {
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric to-transparent" />
 
-      <div className="relative max-w-4xl mx-auto px-6 text-center" ref={contentRef}>
+      <div className="container-wide max-w-4xl text-center" ref={contentRef}>
         {/* Tag */}
         <div data-reveal className="mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-electric/30 bg-electric/10 text-electric text-xs font-semibold tracking-widest uppercase">
@@ -141,7 +141,7 @@ export function CTASection() {
         </p>
 
         {/* Main CTA */}
-        <div data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12">
+         <div data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12">
           <MagneticButton
             href={generateWhatsAppUrl()}
             target="_blank"
@@ -149,6 +149,7 @@ export function CTASection() {
             variant="whatsapp"
             size="lg"
             id="final-cta-whatsapp"
+            className="ds-cta-primary"
           >
             <MessageCircle size={20} />
             Falar no WhatsApp
@@ -159,6 +160,7 @@ export function CTASection() {
             size="lg"
             id="final-cta-catalog"
             onClick={() => document.querySelector("#catalogo")?.scrollIntoView({ behavior: "smooth" })}
+            className="ds-cta-primary"
           >
             Ver Catálogo <ArrowRight size={16} />
           </MagneticButton>

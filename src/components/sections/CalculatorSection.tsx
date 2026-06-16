@@ -173,7 +173,7 @@ export function CalculatorSection() {
     <section
       ref={sectionRef}
       id="calculadora"
-      className="relative py-24 sm:py-32 bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-[3rem] overflow-hidden"
+      className="relative py-[120px] sm:py-[160px] bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-[3rem] overflow-hidden"
     >
       {/* Background decoration */}
       <div
@@ -185,7 +185,7 @@ export function CalculatorSection() {
       />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/4 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container-wide">
         {/* Header */}
         <div ref={titleRef} className="text-center mb-20">
           <p className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase mb-6">
@@ -213,13 +213,13 @@ export function CalculatorSection() {
         </div>
 
         {/* Calculator Card */}
-        <div
-          ref={cardRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-white/8"
-          style={{ background: "linear-gradient(145deg, #111111, #0d0d0d)" }}
-        >
+         <div
+           ref={cardRef}
+           className="grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-3xl overflow-hidden border border-white/8 ds-card"
+           style={{ background: "linear-gradient(145deg, #111111, #0d0d0d)" }}
+         >
           {/* LEFT — Inputs */}
-          <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/8">
+           <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/8 ds-card ds-card-hover">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-xl bg-electric/15 border border-electric/30 flex items-center justify-center">
                 <Fuel size={18} className="text-electric" />
@@ -230,7 +230,7 @@ export function CalculatorSection() {
               </div>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-10">
               {/* km/day */}
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -349,7 +349,7 @@ export function CalculatorSection() {
           </div>
 
           {/* RIGHT — Results */}
-          <div className="p-8 lg:p-12">
+           <div className="p-8 lg:p-12 ds-card ds-card-hover">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center">
                 <Zap size={18} className="text-emerald-400" />
@@ -363,7 +363,7 @@ export function CalculatorSection() {
             {/* Savings % pill */}
             <div className="mb-8 text-center">
               <div
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border"
+                className="inline-flex items-center gap-3 px-8 py-3 rounded-full border ds-card"
                 style={{ background: "#FF6B0015", borderColor: "#FF6B0030" }}
               >
                 <TrendingDown size={16} className="text-electric" />
@@ -373,8 +373,8 @@ export function CalculatorSection() {
             </div>
 
             {/* Result cards */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="p-5 rounded-2xl bg-electric/10 border border-electric/20">
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="p-6 rounded-2xl bg-electric/10 border border-electric/20 ds-card">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar size={14} className="text-electric" />
                   <span className="text-steel text-xs uppercase tracking-wider">Por mês</span>
@@ -387,7 +387,7 @@ export function CalculatorSection() {
                 </span>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/8">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/8 ds-card">
                 <div className="flex items-center gap-2 mb-2">
                   <DollarSign size={14} className="text-white" />
                   <span className="text-steel text-xs uppercase tracking-wider">Por ano</span>
@@ -400,7 +400,7 @@ export function CalculatorSection() {
                 </span>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/8">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/8 ds-card">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingDown size={14} className="text-white" />
                   <span className="text-steel text-xs uppercase tracking-wider">Em 5 anos</span>
@@ -413,7 +413,7 @@ export function CalculatorSection() {
                 </span>
               </div>
 
-              <div className="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
+              <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 ds-card">
                 <div className="flex items-center gap-2 mb-2">
                   <Leaf size={14} className="text-emerald-400" />
                   <span className="text-steel text-xs uppercase tracking-wider">CO₂ evitado/ano</span>
@@ -428,15 +428,15 @@ export function CalculatorSection() {
             </div>
 
             {/* CTA */}
-            <a
-              href={`https://wa.me/5500000000000?text=${encodeURIComponent(
-                `Olá! Calculei que economizaria ${formatBRL(result.annualSaving)} por ano com uma scooter elétrica YESU. Gostaria de mais informações!`
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-2xl font-bold text-white transition-all duration-300 cursor-none"
-              style={{ background: "linear-gradient(135deg, #FF6B00, #FF8C00)", boxShadow: "0 0 30px rgba(255,107,0,0.3)" }}
-            >
+              <a
+                href={`https://wa.me/5500000000000?text=${encodeURIComponent(
+                  `Olá! Calculei que economizaria ${formatBRL(result.annualSaving)} por ano com uma scooter elétrica YESU. Gostaria de mais informações!`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-3 py-4 px-8 rounded-2xl font-bold text-white transition-all duration-300 cursor-none ds-cta-primary"
+                style={{ background: "linear-gradient(135deg, #FF6B00, #FF8C00)", boxShadow: "0 0 30px rgba(255,107,0,0.3)" }}
+              >
               <Zap size={18} />
               Quero economizar {formatBRL(result.annualSaving)}/ano
             </a>

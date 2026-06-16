@@ -118,7 +118,7 @@ export function HeroSection() {
       {/* CONTENT */}
       <div
         ref={contentRef}
-        className="relative z-10 text-center px-6 max-w-6xl mx-auto"
+        className="relative z-10 text-center max-w-6xl mx-auto"
         style={{ willChange: "transform, opacity" }}
       >
         {/* Tagline */}
@@ -166,7 +166,7 @@ export function HeroSection() {
         </p>
 
         {/* CTAs */}
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-5">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-8">
           <MagneticButton
             href="#catalogo"
             variant="primary"

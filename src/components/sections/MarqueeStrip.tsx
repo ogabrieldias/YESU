@@ -65,12 +65,12 @@ export function MarqueeStrip() {
   };
 
   return (
-    <section id="marquee" className="relative py-5 bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-full overflow-hidden shadow-glow-sm">
+    <section id="marquee" className="relative py-6 bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-full overflow-hidden shadow-glow-sm">
       {/* Electric line top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric/60 to-transparent" />
 
       {/* Track 1 */}
-      <div className="overflow-hidden mb-3">
+      <div className="overflow-hidden mb-4">
         <div
           ref={track1Ref}
           className="flex text-chrome whitespace-nowrap"

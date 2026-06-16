@@ -76,15 +76,15 @@ export function TestimonialsSection() {
     <section
       ref={sectionRef}
       id="depoimentos"
-      className="relative py-32 bg-void overflow-hidden"
+      className="relative py-[120px] bg-void overflow-hidden"
     >
       {/* Background */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric/30 to-transparent" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-electric/4 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container-wide">
         {/* Header */}
-        <div ref={titleRef} className="text-center mb-20">
+        <div ref={titleRef} className="text-center mb-16">
           <p className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase mb-6">
             <span className="w-8 h-px bg-electric" />
             Depoimentos
@@ -112,7 +112,7 @@ export function TestimonialsSection() {
           <div className="lg:col-span-2">
             <div
               ref={trackRef}
-              className="relative p-10 rounded-3xl border border-white/8 h-full"
+              className="relative p-12 rounded-3xl border border-white/8 h-full ds-card"
               style={{ background: "linear-gradient(145deg, #111111, #0d0d0d)" }}
             >
               {/* Quote icon */}
@@ -171,12 +171,12 @@ export function TestimonialsSection() {
           </div>
 
           {/* Side cards */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-6">
             {testimonials.slice(0, 3).map((t, i) => (
               <button
                 key={t.id}
                 onClick={() => goTo(i)}
-                className={`text-left p-5 rounded-2xl border transition-all duration-300 cursor-none ${
+                className={`text-left p-6 rounded-2xl border transition-all duration-300 cursor-none ${
                   i === active
                     ? "border-electric/40 bg-electric/5"
                     : "border-white/5 bg-obsidian hover:border-white/15"
@@ -198,7 +198,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-8">
           {[
             { value: "98%", label: "Clientes satisfeitos" },
             { value: "4.9★", label: "Avaliação média" },

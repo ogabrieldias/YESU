@@ -121,7 +121,7 @@ export function ProblemSection() {
     <section
       ref={sectionRef}
       id="problema"
-      className="relative py-24 sm:py-32 bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-[3rem] overflow-hidden"
+      className="relative py-[120px] sm:py-[160px] bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-[3rem] overflow-hidden"
     >
       {/* Background grid */}
       <div
@@ -137,15 +137,15 @@ export function ProblemSection() {
       {/* Green glow (solution) */}
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container-wide">
         {/* Section header */}
-        <div ref={titleRef} className="text-center mb-20">
+        <div ref={titleRef} className="text-center mb-16">
           <p className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase mb-6">
             <span className="w-8 h-px bg-electric" />
             O Problema
             <span className="w-8 h-px bg-electric" />
           </p>
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 p-2">
             Quanto você perde{" "}
             <span
               style={{
@@ -167,14 +167,14 @@ export function ProblemSection() {
         </div>
 
         {/* Stats grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, i) => {
             const Icon = stat.icon;
             return (
               <div
                 key={i}
                 data-stat-num={i}
-                className="problem-card group relative p-8 rounded-2xl border border-white/5 bg-obsidian hover:border-white/15 transition-all duration-500 overflow-hidden"
+                className="problem-card group relative p-8 rounded-2xl border border-white/5 bg-obsidian hover:border-white/15 transition-all duration-500 overflow-hidden ds-card ds-card-hover"
               >
                 {/* Hover glow */}
                 <div

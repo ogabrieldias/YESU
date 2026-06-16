@@ -32,7 +32,7 @@ export function Footer() {
       {/* Glow background */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-electric/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-8">
+      <div className="relative container-wide pt-20 pb-8">
         {/* Top section */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 pb-16 border-b border-white/5">
           {/* Brand */}
@@ -61,19 +61,19 @@ export function Footer() {
                 href="https://instagram.com/yesubrasil"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-electric hover:bg-electric/10 transition-all duration-300"
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-electric hover:bg-electric/10 transition-all duration-300"
                 aria-label="Instagram YESU Brasil"
               >
-                <Instagram size={16} />
+                <Instagram size={18} />
               </a>
               <a
                 href={generateWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all duration-300"
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all duration-300"
                 aria-label="WhatsApp YESU Brasil"
               >
-                <MessageCircle size={16} />
+                <MessageCircle size={18} />
               </a>
             </div>
           </div>

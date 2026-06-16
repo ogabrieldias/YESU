@@ -21,8 +21,20 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  --shadow-glow: 0 0 40px rgba(255, 107, 0, 0.3);
-  --shadow-glow-sm: 0 0 20px rgba(255, 107, 0, 0.2);
+  --shadow-glow: 0 20px 60px rgba(255, 107, 0, 0.12), 0 4px 16px rgba(0,0,0,0.6);
+  --shadow-glow-sm: 0 8px 24px rgba(255, 107, 0, 0.08);
+
+  /* Spacing scale */
+  --space-xxl: 180px;
+  --space-xl: 120px;
+  --space-lg: 64px;
+  --space-md: 32px;
+  --space-sm: 24px;
+  --space-xs: 16px;
+
+  /* Container widths */
+  --container-max: 1400px;
+  --container-lg: 1500px;
 
   --animate-marquee: marquee 25s linear infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -117,7 +129,7 @@ html.lenis, html.lenis body {
 
 /* Glow effects */
 .glow-electric {
-  box-shadow: 0 0 40px rgba(255, 107, 0, 0.3), 0 0 80px rgba(255, 107, 0, 0.1);
+  box-shadow: var(--shadow-glow);
 }
 
 .glow-text {
@@ -138,6 +150,45 @@ html.lenis, html.lenis body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Design system utilities */
+.container-wide {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.container-xl {
+  max-width: var(--container-lg);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+/* Card defaults */
+.ds-card {
+  padding: 32px; /* default card padding */
+  border-radius: 16px;
+  background: linear-gradient(145deg, #0f0f0f, #0b0b0b);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+}
+
+/* CTA stronger styles */
+.ds-cta-primary {
+  min-height: 56px;
+  padding: 0 32px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-glow-sm);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.ds-cta-primary:hover { transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+
+/* Elevated card hover */
+.ds-card-hover:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.6); }
 
 /* Hide cursor on elements that use magnetic */
 .magnetic-wrapper {

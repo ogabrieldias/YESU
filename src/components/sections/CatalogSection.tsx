@@ -38,7 +38,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   return (
     <div
       ref={cardRef}
-      className="group relative rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 transition-all duration-700 cursor-none"
+      className="group relative rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 transition-all duration-700 cursor-none ds-card ds-card-hover"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -63,7 +63,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       )}
 
       {/* Image area */}
-      <div className="relative h-64 bg-graphite overflow-hidden flex items-center justify-center">
+      <div className="relative h-72 bg-graphite overflow-hidden flex items-center justify-center">
         {/* Placeholder — insert product image here */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
           <div
@@ -93,7 +93,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-8">
         {/* Category tag */}
         <p className="text-xs tracking-[0.3em] uppercase font-semibold mb-2" style={{ color: product.accentColor }}>
           {product.category === "urban" ? "Urbana" :
@@ -110,7 +110,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         <p className="text-steel text-sm mb-4">{product.tagline}</p>
 
         {/* Mini specs */}
-        <div className="grid grid-cols-3 gap-3 mb-6 p-4 rounded-xl bg-white/3 border border-white/5">
+         <div className="grid grid-cols-3 gap-4 mb-6 p-6 rounded-xl bg-white/3 border border-white/5">
           {mainSpecs.map((spec) => (
             <div key={spec.label} className="text-center">
               <div className="text-white font-bold text-sm">
@@ -123,7 +123,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         </div>
 
         {/* Price */}
-        <div className="flex items-end justify-between mb-6">
+         <div className="flex items-end justify-between mb-6">
           <div>
             <div className="text-steel text-xs mb-1">A partir de</div>
             <div className="text-3xl font-black text-white">
@@ -140,26 +140,26 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         </div>
 
         {/* CTAs */}
-        <div className="flex gap-3">
-          <a
-            href={`/produtos/${product.slug}`}
-            className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-white/10 text-sm font-semibold text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 cursor-none"
-          >
-            Ver Detalhes <ArrowRight size={14} />
-          </a>
-          <a
-            href={generateWhatsAppUrl(product.name)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold text-white transition-all duration-300 cursor-none"
-            style={{
-              background: "#25D36620",
-              border: "1px solid #25D36640",
-            }}
-          >
-            <MessageCircle size={14} className="text-[#25D366]" />
-          </a>
-        </div>
+         <div className="flex gap-4">
+           <a
+             href={`/produtos/${product.slug}`}
+            className="flex-1 flex items-center justify-center gap-2 py-4 px-8 rounded-xl border border-white/10 text-sm font-semibold text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 cursor-none ds-cta-primary"
+           >
+             Ver Detalhes <ArrowRight size={14} />
+           </a>
+           <a
+             href={generateWhatsAppUrl(product.name)}
+             target="_blank"
+             rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 py-4 px-8 rounded-xl text-sm font-semibold text-white transition-all duration-300 cursor-none"
+             style={{
+               background: "#25D36620",
+               border: "1px solid #25D36640",
+             }}
+           >
+             <MessageCircle size={14} className="text-[#25D366]" />
+           </a>
+         </div>
       </div>
 
       {/* Bottom accent line */}
@@ -220,14 +220,14 @@ export function CatalogSection() {
     <section
       ref={sectionRef}
       id="catalogo"
-      className="relative py-24 sm:py-32 bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-[3rem] overflow-hidden"
+      className="relative py-[120px] sm:py-[160px] bg-obsidian border border-white/5 rounded-[2rem] sm:rounded-[3rem] overflow-hidden"
     >
       {/* Electric glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-electric/3 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container-wide">
         {/* Header */}
-        <div ref={titleRef} className="text-center mb-20">
+        <div ref={titleRef} className="text-center mb-16">
           <p className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase mb-6">
             <span className="w-8 h-px bg-electric" />
             Catálogo
@@ -255,7 +255,7 @@ export function CatalogSection() {
         {/* Product Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12"
         >
           {featuredProducts.map((product, index) => (
             <div key={product.id} className="product-card-wrapper">
@@ -264,7 +264,7 @@ export function CatalogSection() {
           ))}
 
           {/* Coming soon card */}
-          <div className="relative rounded-2xl border border-white/5 border-dashed bg-obsidian/50 flex flex-col items-center justify-center p-12 min-h-[400px]">
+          <div className="relative rounded-2xl border border-white/5 border-dashed bg-obsidian/50 flex flex-col items-center justify-center p-12 min-h-[480px] ds-card">
             <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mb-6">
               <Zap size={24} className="text-electric" />
             </div>

@@ -165,8 +165,8 @@ export function Preloader() {
         ref={logoRef}
         style={{
           position: "relative",
-          width: "160px",
-          height: "160px",
+          width: "200px",
+          height: "200px",
           opacity: 0,
           filter: "invert(1) brightness(2)",
         }}
@@ -202,7 +202,7 @@ export function Preloader() {
           bottom: "60px",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "200px",
+          width: "260px",
           textAlign: "center",
         }}
       >
