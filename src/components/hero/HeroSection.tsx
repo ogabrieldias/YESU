@@ -124,7 +124,7 @@ export function HeroSection() {
         {/* Tagline */}
         <p
           ref={taglineRef}
-          className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase mb-8"
+          className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase "
         >
           <span className="w-8 h-px bg-electric" />
           Mobilidade Elétrica Premium
@@ -157,14 +157,6 @@ export function HeroSection() {
           para sempre.
         </h1>
 
-        {/* Sub-headline */}
-        <p
-          ref={subheadlineRef}
-          className="text-chrome text-lg sm:text-xl lg:text-2xl font-light tracking-wider mb-12 max-w-2xl mx-auto"
-        >
-          Economia · Tecnologia · Sustentabilidade
-        </p>
-
         {/* CTAs */}
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-8">
           <MagneticButton
@@ -178,21 +170,10 @@ export function HeroSection() {
           >
             Conheça os Modelos
           </MagneticButton>
-          <MagneticButton
-            href="#calculadora"
-            variant="secondary"
-            size="lg"
-            id="hero-cta-secondary"
-            onClick={() => {
-              document.querySelector("#calculadora")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Calcule sua Economia
-          </MagneticButton>
         </div>
 
         {/* Stats row */}
-        <div className="flex items-center justify-center gap-12 mt-16">
+        <div className="flex items-center justify-center gap-12 mt-5">
           {[
             { value: "90%", label: "Economia em combustível" },
             { value: "0", label: "Emissões de CO₂" },

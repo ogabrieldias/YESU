@@ -52,11 +52,11 @@
   50% { transform: translateY(-20px); }
 }
 
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 html {
   scroll-behavior: auto; /* Lenis handles smooth scroll */

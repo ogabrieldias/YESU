@@ -139,13 +139,13 @@ export function ProblemSection() {
 
       <div className="container-wide">
         {/* Section header */}
-        <div ref={titleRef} className="text-center mb-16">
+        <div ref={titleRef} className="text-center mb-16 !mt-10">
           <p className="inline-flex items-center gap-3 text-electric text-xs font-semibold tracking-[0.4em] uppercase mb-6">
             <span className="w-8 h-px bg-electric" />
             O Problema
             <span className="w-8 h-px bg-electric" />
           </p>
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 p-2">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight !mb-6 !p-2">
             Quanto você perde{" "}
             <span
               style={{
