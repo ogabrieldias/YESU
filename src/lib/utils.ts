@@ -36,7 +36,7 @@ export function mapRange(
   return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
 
-export const WHATSAPP_NUMBER = "5500000000000"; // ⚠️ SUBSTITUA pelo número real da YESU Brasil
+export const WHATSAPP_NUMBER = "5524998558044"; // ⚠️ SUBSTITUA pelo número real da YESU Brasil
 
 export function buildWhatsAppUrl(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

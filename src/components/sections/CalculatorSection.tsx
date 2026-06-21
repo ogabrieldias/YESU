@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Slider } from "@/components/ui/Slider";
+import { generateWhatsAppUrl, WHATSAPP_NUMBER } from "@/lib/utils";
 import {
   DollarSign,
   Leaf,
@@ -429,7 +430,7 @@ export function CalculatorSection() {
 
             {/* CTA */}
               <a
-                href={`https://wa.me/5500000000000?text=${encodeURIComponent(
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                   `Olá! Calculei que economizaria ${formatBRL(result.annualSaving)} por ano com uma scooter elétrica YESU. Gostaria de mais informações!`
                 )}`}
                 target="_blank"

@@ -113,19 +113,12 @@ export function ProductPageClient({ product }: Props) {
             {/* Main image */}
             <div className="relative aspect-square rounded-3xl bg-obsidian border border-white/8 overflow-hidden mb-4 flex items-center justify-center"
               data-hero-item>
-              {/* Image placeholder */}
-              <div className="flex flex-col items-center gap-4 text-center p-8">
-                <div
-                  className="w-24 h-24 rounded-full flex items-center justify-center"
-                  style={{ background: `${product.accentColor}20`, border: `2px solid ${product.accentColor}40` }}
-                >
-                  <Zap size={40} style={{ color: product.accentColor }} />
-                </div>
-                <p className="text-steel text-sm">Inserir imagem:</p>
-                <code className="text-white/40 text-xs bg-white/5 px-3 py-1.5 rounded-lg">
-                  /public/images/products/{product.slug}/cover.jpg
-                </code>
-              </div>
+              <img
+                src={product.galleryImages[galleryIdx] || product.coverImage}
+                alt={product.name}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
               {/* Glow */}
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -137,17 +130,17 @@ export function ProductPageClient({ product }: Props) {
 
             {/* Gallery thumbs */}
             <div className="grid grid-cols-4 gap-3">
-              {product.galleryImages.map((_, i) => (
+              {product.galleryImages.map((src, i) => (
                 <button
                   key={i}
                   onClick={() => setGalleryIdx(i)}
-                  className={`aspect-square rounded-xl border transition-all duration-300 cursor-none flex items-center justify-center ${
+                  className={`aspect-square rounded-xl border transition-all duration-300 cursor-none overflow-hidden ${
                     i === galleryIdx
                       ? "border-electric bg-electric/10"
                       : "border-white/5 bg-obsidian hover:border-white/20"
                   }`}
                 >
-                  <span className="text-steel text-xs">{i + 1}</span>
+                  <img src={src} alt={`${product.name} ${i + 1}`} className="w-full h-full object-cover rounded-xl" />
                 </button>
               ))}
             </div>

@@ -42,13 +42,13 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    slug: "yesu-urban-pro",
-    name: "YESU Urban Pro",
+    slug: "yesu-jet",
+    name: "YESU Jet",
     tagline: "A cidade é sua pista.",
     description:
       "Scooter elétrica urbana de alto desempenho. Design premium, tecnologia avançada e autonomia para enfrentar o dia a dia da cidade com eficiência e estilo.",
     longDescription:
-      "A YESU Urban Pro foi projetada para quem não abre mão de estilo e eficiência. Com motor brushless de 2.000W, bateria de lítio de 72V e autonomia de até 80km, ela é a escolha certa para o dia a dia urbano. Sistema de recuperação de energia regenerativa, display LCD inteligente e conectividade Bluetooth para monitoramento via app. Freios a disco hidráulicos nas duas rodas garantem segurança total.",
+      "A YESU Jet foi projetada para quem não abre mão de estilo e eficiência. Com motor de 1.000W, bateria de lítio de 72V e autonomia de até 50km, ela é a escolha certa para o dia a dia urbano. Sistema de recuperação de energia regenerativa, display LCD inteligente e conectividade Bluetooth para monitoramento via app. Freios a disco hidráulicos nas duas rodas garantem segurança total.",
     price: 8990,
     priceInstallment: 299,
     installments: 30,
@@ -57,21 +57,17 @@ export const products: Product[] = [
     badgeColor: "#FF6B00",
     color: "#0d0d0d",
     accentColor: "#FF6B00",
-    // ⚠️ INSERIR IMAGEM: public/images/products/yesu-urban-pro/cover.jpg
-    coverImage: "/images/products/yesu-urban-pro/cover.jpg",
-    // ⚠️ INSERIR IMAGENS: public/images/products/yesu-urban-pro/gallery-1.jpg até gallery-4.jpg
+    // ⚠️ INSERIR IMAGEM: public/images/products/yesu-jet/cover.jpg
+    coverImage: "/images/products/yesu-jet/cover.jpeg",
     galleryImages: [
-      "/images/products/yesu-urban-pro/gallery-1.jpg",
-      "/images/products/yesu-urban-pro/gallery-2.jpg",
-      "/images/products/yesu-urban-pro/gallery-3.jpg",
-      "/images/products/yesu-urban-pro/gallery-4.jpg",
+      "/images/products/yesu-jet/gallery-1.jpeg",
     ],
-    // ⚠️ INSERIR THUMBNAIL: public/images/products/yesu-urban-pro/thumb.jpg
-    thumbnail: "/images/products/yesu-urban-pro/thumb.jpg",
+    // ⚠️ INSERIR THUMBNAIL: public/images/products/yesu-jet/thumb.jpg
+    thumbnail: "/images/products/yesu-jet/thumb.jpeg",
     specs: [
-      { label: "Autonomia", value: "80", unit: "km", icon: "battery" },
-      { label: "Vel. Máxima", value: "70", unit: "km/h", icon: "gauge" },
-      { label: "Motor", value: "2.000", unit: "W", icon: "zap" },
+      { label: "Autonomia", value: "50", unit: "km", icon: "battery" },
+      { label: "Vel. Máxima", value: "32", unit: "km/h", icon: "gauge" },
+      { label: "Motor", value: "1.000", unit: "W", icon: "zap" },
       { label: "Bateria", value: "72V 32Ah", unit: "", icon: "battery-charging" },
       { label: "Carga", value: "4-6", unit: "horas", icon: "clock" },
       { label: "Peso", value: "115", unit: "kg", icon: "weight" },
@@ -100,13 +96,13 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    slug: "yesu-max-range",
-    name: "YESU Max Range",
+    slug: "yesu-beach",
+    name: "YESU Beach",
     tagline: "Autonomia sem limites.",
     description:
       "Para quem percorre longas distâncias todos os dias. Bateria estendida de 72V 50Ah com autonomia real de até 120km por carga.",
     longDescription:
-      "A YESU Max Range quebra as barreiras da mobilidade elétrica. Com a maior bateria da linha, oferece 120km de autonomia real em condições urbanas. Motor de 3.000W para subidas e cargas pesadas. Sistema de gestão de bateria (BMS) avançado que monitora cada célula em tempo real. Ideal para entregadores, profissionais e quem cobre grandes distâncias diárias. Carregamento rápido opcional em 2 horas.",
+      "A YESU Beach quebra as barreiras da mobilidade elétrica. Com a maior bateria da linha, oferece 50km de autonomia real em condições urbanas. Motor de 3.000W para subidas e cargas pesadas. Sistema de gestão de bateria (BMS) avançado que monitora cada célula em tempo real. Ideal para entregadores, profissionais e quem cobre grandes distâncias diárias. Carregamento rápido opcional em 2 horas.",
     price: 12490,
     priceInstallment: 416,
     installments: 30,
@@ -116,17 +112,17 @@ export const products: Product[] = [
     color: "#0a0a0a",
     accentColor: "#00A86B",
     // ⚠️ INSERIR IMAGEM: public/images/products/yesu-max-range/cover.jpg
-    coverImage: "/images/products/yesu-max-range/cover.jpg",
+    coverImage: "/images/products/yesu-beach/cover.jpeg",
     galleryImages: [
-      "/images/products/yesu-max-range/gallery-1.jpg",
-      "/images/products/yesu-max-range/gallery-2.jpg",
-      "/images/products/yesu-max-range/gallery-3.jpg",
-      "/images/products/yesu-max-range/gallery-4.jpg",
+      "/images/products/yesu-beach/gallery-1.jpeg",
+      "/images/products/yesu-beach/gallery-2.jpeg",
+      "/images/products/yesu-beach/gallery-3.jpeg",
+      "/images/products/yesu-beach/gallery-4.jpeg",
     ],
-    thumbnail: "/images/products/yesu-max-range/thumb.jpg",
+    thumbnail: "/images/products/yesu-beach/thumb.jpeg",
     specs: [
-      { label: "Autonomia", value: "120", unit: "km", icon: "battery" },
-      { label: "Vel. Máxima", value: "80", unit: "km/h", icon: "gauge" },
+      { label: "Autonomia", value: "0", unit: "km", icon: "battery" },
+      { label: "Vel. Máxima", value: "32", unit: "km/h", icon: "gauge" },
       { label: "Motor", value: "3.000", unit: "W", icon: "zap" },
       { label: "Bateria", value: "72V 50Ah", unit: "", icon: "battery-charging" },
       { label: "Carga", value: "6-8", unit: "horas", icon: "clock" },
@@ -156,8 +152,8 @@ export const products: Product[] = [
   },
   {
     id: "3",
-    slug: "yesu-sport",
-    name: "YESU Sport",
+    slug: "yesu-ziyou",
+    name: "YESU Ziyou",
     tagline: "Performance elétrica pura.",
     description:
       "A mais ágil da linha YESU. Design esportivo, aceleração impressionante e tecnologia de última geração para quem vive pela adrenalina.",
@@ -172,14 +168,14 @@ export const products: Product[] = [
     color: "#0d0d0d",
     accentColor: "#FF6B00",
     // ⚠️ INSERIR IMAGEM: public/images/products/yesu-sport/cover.jpg
-    coverImage: "/images/products/yesu-sport/cover.jpg",
+    coverImage: "/images/products/yesu-ziyou/cover.jpeg",
     galleryImages: [
-      "/images/products/yesu-sport/gallery-1.jpg",
-      "/images/products/yesu-sport/gallery-2.jpg",
-      "/images/products/yesu-sport/gallery-3.jpg",
-      "/images/products/yesu-sport/gallery-4.jpg",
+      "/images/products/yesu-ziyou/gallery-1.jpeg",
+      "/images/products/yesu-ziyou/gallery-2.jpeg",
+      "/images/products/yesu-ziyou/gallery-3.jpeg",
+      "/images/products/yesu-ziyou/gallery-4.jpeg",
     ],
-    thumbnail: "/images/products/yesu-sport/thumb.jpg",
+    thumbnail: "/images/products/yesu-ziyou/thumb.jpeg",
     specs: [
       { label: "Autonomia", value: "90", unit: "km", icon: "battery" },
       { label: "Vel. Máxima", value: "100", unit: "km/h", icon: "gauge" },
@@ -210,61 +206,7 @@ export const products: Product[] = [
     featured: true,
     order: 3,
   },
-  {
-    id: "4",
-    slug: "yesu-cargo",
-    name: "YESU Cargo",
-    tagline: "Trabalhe mais. Gaste menos.",
-    description:
-      "A solução definitiva para delivery e logística urbana. Capacidade de carga ampliada, baú enorme e custo operacional mínimo.",
-    longDescription:
-      "A YESU Cargo foi desenvolvida especificamente para profissionais de delivery e logística urbana. Com plataforma de carga reforçada, baú de 45 litros e capacidade de 200kg, ela substitui completamente motos a combustão com custo operacional até 90% menor. Motor de 2.500W com torque para subidas e cargas pesadas. Bateria removível para troca rápida sem necessidade de ponto de recarga.",
-    price: 10990,
-    priceInstallment: 366,
-    installments: 30,
-    category: "cargo",
-    badge: "Para Delivery",
-    badgeColor: "#0080FF",
-    color: "#0a0a0a",
-    accentColor: "#0080FF",
-    coverImage: "/images/products/yesu-cargo/cover.jpg",
-    galleryImages: [
-      "/images/products/yesu-cargo/gallery-1.jpg",
-      "/images/products/yesu-cargo/gallery-2.jpg",
-      "/images/products/yesu-cargo/gallery-3.jpg",
-      "/images/products/yesu-cargo/gallery-4.jpg",
-    ],
-    thumbnail: "/images/products/yesu-cargo/thumb.jpg",
-    specs: [
-      { label: "Autonomia", value: "100", unit: "km", icon: "battery" },
-      { label: "Vel. Máxima", value: "70", unit: "km/h", icon: "gauge" },
-      { label: "Motor", value: "2.500", unit: "W", icon: "zap" },
-      { label: "Carga Máx.", value: "200", unit: "kg", icon: "weight" },
-      { label: "Volume Baú", value: "45", unit: "litros", icon: "package" },
-      { label: "Bateria", value: "Removível", unit: "", icon: "battery-charging" },
-      { label: "Carga", value: "5-7", unit: "horas", icon: "clock" },
-      { label: "Garantia", value: "1", unit: "ano", icon: "shield" },
-    ],
-    highlights: [
-      "Bateria removível para troca rápida",
-      "Baú traseiro 45L reforçado",
-      "Plataforma de carga 200kg",
-      "Motor com alto torque para subidas",
-      "Pneus anti-furo para uso profissional",
-      "Sistema de rastreamento GPS incluso",
-      "Faróis LED com alta luminosidade",
-      "Custo operacional 90% menor",
-    ],
-    colors: [
-      { name: "Preto Absoluto", hex: "#050505" },
-      { name: "Azul Corporativo", hex: "#0080FF" },
-      { name: "Branco Profissional", hex: "#F5F5F5" },
-    ],
-    whatsappMessage:
-      "Olá! Tenho interesse na YESU Cargo para delivery. Gostaria de mais informações sobre preço e disponibilidade.",
-    featured: false,
-    order: 4,
-  },
+  
 ];
 
 export const featuredProducts = products.filter((p) => p.featured);
@@ -278,4 +220,4 @@ export function formatPrice(price: number): string {
     style: "currency",
     currency: "BRL",
   }).format(price);
-}
+} 

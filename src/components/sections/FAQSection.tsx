@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown, Plus, Minus } from "lucide-react";
 import { faqItems, type FAQItem } from "@/lib/data/faq";
+import { generateWhatsAppUrl } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,7 +178,7 @@ export function FAQSection() {
         <div className="text-center mt-12">
           <p className="text-steel text-sm mb-4">Não encontrou sua dúvida?</p>
           <a
-            href="https://wa.me/5500000000000?text=Ol%C3%A1%21+Tenho+uma+d%C3%BAvida+sobre+as+scooters+el%C3%A9tricas+YESU."
+            href={generateWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-electric font-semibold hover:text-ember transition-colors duration-300 cursor-none"

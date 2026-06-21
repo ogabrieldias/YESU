@@ -4,10 +4,9 @@ import { generateWhatsAppUrl } from "@/lib/utils";
 
 const footerLinks = {
   modelos: [
-    { label: "YESU Urban Pro", href: "/produtos/yesu-urban-pro" },
-    { label: "YESU Max Range", href: "/produtos/yesu-max-range" },
-    { label: "YESU Sport", href: "/produtos/yesu-sport" },
-    { label: "YESU Cargo", href: "/produtos/yesu-cargo" },
+    { label: "YESU Jet", href: "/produtos/jet" },
+    { label: "YESU Beach", href: "/produtos/beach" },
+    { label: "YESU Ziyou", href: "/produtos/ziyou" },
   ],
   empresa: [
     { label: "Sobre Nós", href: "#sobre" },

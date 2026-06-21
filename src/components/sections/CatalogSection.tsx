@@ -64,21 +64,13 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
       {/* Image area */}
       <div className="relative h-72 bg-graphite overflow-hidden flex items-center justify-center">
-        {/* Placeholder — insert product image here */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-          <div
-            className="w-20 h-20 rounded-full flex items-center justify-center"
-            style={{ background: `${product.accentColor}20`, border: `2px solid ${product.accentColor}40` }}
-          >
-            <Zap size={32} style={{ color: product.accentColor }} />
-          </div>
-          <p className="text-steel text-xs tracking-widest uppercase">
-            ⚠️ Inserir imagem em:
-          </p>
-          <p className="text-white/40 text-[10px] font-mono px-4 text-center">
-            /public/images/products/{product.slug}/cover.jpg
-          </p>
-        </div>
+        {/* Product image (uses thumbnail if available, otherwise coverImage) */}
+        <img
+          src={product.thumbnail || product.coverImage}
+          alt={product.name}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
         {/* Hover glow */}
         <div
