@@ -264,3 +264,21 @@ criar tbm novas cores pra quando o user trocar a cor no catalogo ele visualizar 
 
 otimizar as imagens
 transformar para webp
+
+
+
+
+
+
+
+
+
+
+
+NavBar:
+Pra alterar algo no NavBar basta acessar src\components\layout\Navbar.tsx
+Pra mudança de qualquer número de telefone que esteja no href de um botão ou link basta acessar src\lib\utils.ts e alterar o const WHATSAPP_NUMBER
+
+
+Section Hero:
+Pra alterar algo no hero basta acessar src\components\hero\HeroSection.tsx 
