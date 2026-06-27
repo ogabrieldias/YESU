@@ -144,28 +144,83 @@ export function TestimonialsSection() {
 
               {/* Navigation */}
               <div className="flex items-center gap-3 mt-8 pt-6 border-t border-white/5">
+
                 <button
+                  aria-label="Depoimento anterior"
+                  title="Depoimento anterior"
                   onClick={() => goTo(active - 1)}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-white/30 transition-all duration-300 cursor-none"
+                  className="
+                    w-10 h-10
+                    rounded-full
+                    border
+                    border-white/10
+                    flex
+                    items-center
+                    justify-center
+                    text-steel
+                    hover:text-white
+                    hover:border-white/30
+                    transition-all
+                    duration-300
+                    cursor-none
+                  "
                 >
-                  <ChevronLeft size={16} />
+                  <ChevronLeft size={16} aria-hidden="true" />
                 </button>
+
+
                 <div className="flex gap-2">
+
                   {testimonials.map((_, i) => (
                     <button
                       key={i}
+                      aria-label={`Ir para depoimento ${i + 1}`}
+                      aria-current={i === active ? "true" : undefined}
+                      title={`Depoimento ${i + 1}`}
                       onClick={() => goTo(i)}
-                      className="w-2 h-2 rounded-full transition-all duration-300 cursor-none"
-                      style={{ background: i === active ? "#FF6B00" : "#2a2a2a" }}
+                      className="
+                        w-2
+                        h-2
+                        rounded-full
+                        transition-all
+                        duration-300
+                        cursor-none
+                      "
+                      style={{
+                        background:
+                          i === active
+                            ? "#FF6B00"
+                            : "#2a2a2a",
+                      }}
                     />
                   ))}
+
                 </div>
+
+
                 <button
+                  aria-label="Próximo depoimento"
+                  title="Próximo depoimento"
                   onClick={() => goTo(active + 1)}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-white/30 transition-all duration-300 cursor-none"
+                  className="
+                    w-10 h-10
+                    rounded-full
+                    border
+                    border-white/10
+                    flex
+                    items-center
+                    justify-center
+                    text-steel
+                    hover:text-white
+                    hover:border-white/30
+                    transition-all
+                    duration-300
+                    cursor-none
+                  "
                 >
-                  <ChevronRight size={16} />
+                  <ChevronRight size={16} aria-hidden="true" />
                 </button>
+
               </div>
             </div>
           </div>
