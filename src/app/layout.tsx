@@ -1,9 +1,27 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+
 import "./globals.css";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  weight: [
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+  ],
+});
 
 
 export const metadata: Metadata = {
@@ -25,6 +43,7 @@ export const metadata: Metadata = {
   authors: [{ name: "YESU Brasil" }],
   creator: "YESU Brasil",
   publisher: "YESU Brasil",
+
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -42,12 +61,15 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "YESU Brasil | Mobilidade Elétrica Premium",
-    description: "Scooters e veículos elétricos premium. Economize até 90% em combustível.",
+    description:
+      "Scooters e veículos elétricos premium. Economize até 90% em combustível.",
     images: ["/images/og-image.jpg"],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -59,16 +81,19 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
   alternates: {
     canonical: "https://yesubrasil.com.br",
   },
 };
+
 
 export const viewport: Viewport = {
   themeColor: "#050505",
   width: "device-width",
   initialScale: 1,
 };
+
 
 export default function RootLayout({
   children,
@@ -77,13 +102,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
+      <body
+        className={`${inter.className} bg-void text-white overflow-x-hidden`}
+      >
+        <SmoothScrollProvider>
+          <CustomCursor />
+
+          <Navbar />
+
+          <main>{children}</main>
+
+          <Footer />
+        </SmoothScrollProvider>
+
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -93,8 +125,12 @@ export default function RootLayout({
               name: "YESU Brasil",
               url: "https://yesubrasil.com.br",
               logo: "https://yesubrasil.com.br/images/logo.png",
-              description: "Especialistas em mobilidade elétrica. Scooters e veículos elétricos premium.",
-              sameAs: ["https://instagram.com/yesubrasil", "https://wa.me/5500000000000"],
+              description:
+                "Especialistas em mobilidade elétrica. Scooters e veículos elétricos premium.",
+              sameAs: [
+                "https://instagram.com/yesubrasil",
+                "https://wa.me/5500000000000",
+              ],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "sales",
@@ -103,14 +139,6 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
-      <body className="bg-void text-white overflow-x-hidden">
-        <SmoothScrollProvider>
-          <CustomCursor />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
       </body>
     </html>
   );
