@@ -109,7 +109,7 @@ export function ProductPageClient({ product }: Props) {
       <section ref={heroRef} className="container-wide pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Image */}
-          <div className="sticky top-28">
+          <div className="lg:sticky lg:top-28">
             {/* Main image */}
             <div className="relative aspect-square rounded-3xl bg-obsidian border border-white/8 overflow-hidden mb-4 flex items-center justify-center"
               data-hero-item>

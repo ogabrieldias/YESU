@@ -38,7 +38,6 @@ export function Footer() {
 
     const sectionId = href.replace("/#", "");
 
-    // Caso esteja na página inicial
     if (window.location.pathname === "/") {
       const target = document.getElementById(sectionId);
 
@@ -51,7 +50,6 @@ export function Footer() {
       return;
     }
 
-    // Caso esteja em uma página interna
     router.push(`/#${sectionId}`);
   };
 
@@ -62,12 +60,27 @@ export function Footer() {
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-electric/5 rounded-full blur-3xl pointer-events-none" />
 
+
       <div className="relative container-wide pt-20 pb-8">
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 sm:gap-16 pb-16 border-b border-white/5">
+
+        <div
+          className="
+            grid
+            grid-cols-1
+            lg:grid-cols-5
+            gap-10
+            sm:gap-16
+            pb-16
+            border-b
+            border-white/5
+          "
+        >
+
 
           {/* Brand */}
           <div className="lg:col-span-2">
+
             <div className="flex items-center gap-3 mb-6">
 
               <div
@@ -82,6 +95,7 @@ export function Footer() {
                 />
               </div>
 
+
               <div>
                 <div className="text-white font-bold text-xl tracking-wider">
                   YESU Brasil
@@ -93,6 +107,7 @@ export function Footer() {
               </div>
 
             </div>
+
 
             <p className="text-steel text-sm leading-relaxed max-w-sm mb-8">
               Transformando a mobilidade urbana brasileira com veículos
@@ -107,7 +122,16 @@ export function Footer() {
                 href="https://instagram.com/yesubrasil"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-electric hover:bg-electric/10 transition-all duration-300"
+                className="
+                  w-12 h-12 rounded-full 
+                  border border-white/10 
+                  flex items-center justify-center 
+                  text-steel 
+                  hover:text-white 
+                  hover:border-electric 
+                  hover:bg-electric/10 
+                  transition-all duration-300
+                "
               >
                 <Instagram size={18} />
               </a>
@@ -117,7 +141,16 @@ export function Footer() {
                 href={generateWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-steel hover:text-white hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all duration-300"
+                className="
+                  w-12 h-12 rounded-full 
+                  border border-white/10 
+                  flex items-center justify-center 
+                  text-steel 
+                  hover:text-white 
+                  hover:border-[#25D366] 
+                  hover:bg-[#25D366]/10 
+                  transition-all duration-300
+                "
               >
                 <MessageCircle size={18} />
               </a>
@@ -127,21 +160,60 @@ export function Footer() {
           </div>
 
 
+
           {/* Modelos */}
-          <div>
-            <h4 className="text-white text-xs font-semibold tracking-[0.2em] uppercase mb-6">
+          
+          <div className="lg:col-span-1">
+
+            <h4
+              className="
+                text-white
+                text-xs
+                font-semibold
+                tracking-[0.2em]
+                uppercase
+                mb-6
+                text-center
+                lg:text-left
+              "
+            >
               Modelos
             </h4>
 
-            <ul className="grid grid-cols-3 gap-2 sm:block sm:space-y-3">
+
+            <ul
+              className="
+                grid
+                grid-cols-1
+                min-[400px]:grid-cols-2
+                md:grid-cols-3
+                lg:block
+                lg:space-y-3
+                gap-4
+              "
+            >
 
               {footerLinks.modelos.map((link) => (
 
-                <li key={link.href}>
+                <li
+                  key={link.href}
+                  className="
+                    flex
+                    justify-center
+                    lg:justify-start
+                  "
+                >
 
                   <a
                     href={link.href}
-                    className="text-steel text-sm hover:text-electric transition-colors duration-300"
+                    className="
+                      text-steel
+                      text-sm
+                      text-center
+                      hover:text-electric
+                      transition-colors
+                      duration-300
+                    "
                   >
                     {link.label}
                   </a>
@@ -151,18 +223,32 @@ export function Footer() {
               ))}
 
             </ul>
+
           </div>
 
 
 
-          {/* Empresa */}
-          <div>
 
-            <h4 className="text-white text-xs font-semibold tracking-[0.2em] uppercase mb-6">
+          {/* Empresa */}
+          <div className="lg:col-span-1">
+
+            <h4
+              className="
+                text-white
+                text-xs
+                font-semibold
+                tracking-[0.2em]
+                uppercase
+                mb-6
+                text-center
+                lg:text-left
+              "
+            >
               Empresa
             </h4>
 
-            <ul className="space-y-3">
+
+            <ul className="space-y-3 text-center lg:text-left">
 
               {footerLinks.empresa.map((link) => (
 
@@ -171,7 +257,13 @@ export function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleFooterClick(e, link.href)}
-                    className="text-steel text-sm hover:text-electric transition-colors duration-300"
+                    className="
+                      text-steel
+                      text-sm
+                      hover:text-electric
+                      transition-colors
+                      duration-300
+                    "
                   >
                     {link.label}
                   </a>
@@ -186,17 +278,30 @@ export function Footer() {
 
 
 
-          {/* Contato */}
-          <div>
 
-            <h4 className="text-white text-xs font-semibold tracking-[0.2em] uppercase mb-6">
+          {/* Contato */}
+          <div className="lg:col-span-1">
+
+            <h4
+              className="
+                text-white
+                text-xs
+                font-semibold
+                tracking-[0.2em]
+                uppercase
+                mb-6
+                text-center
+                lg:text-left
+              "
+            >
               Contato
             </h4>
 
 
             <ul className="space-y-4">
 
-              <li className="flex items-start gap-3 text-steel text-sm">
+              <li className="flex items-start justify-center lg:justify-start gap-3 text-steel text-sm">
+
                 <Phone
                   size={14}
                   className="mt-0.5 text-electric shrink-0"
@@ -209,7 +314,7 @@ export function Footer() {
               </li>
 
 
-              <li className="flex items-start gap-3 text-steel text-sm">
+              <li className="flex items-start justify-center lg:justify-start gap-3 text-steel text-sm">
 
                 <Mail
                   size={14}
@@ -223,7 +328,7 @@ export function Footer() {
               </li>
 
 
-              <li className="flex items-start gap-3 text-steel text-sm">
+              <li className="flex items-start justify-center lg:justify-start gap-3 text-steel text-sm">
 
                 <MapPin
                   size={14}
@@ -246,16 +351,25 @@ export function Footer() {
 
 
 
+
         {/* Bottom */}
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
+        <div className="
+          flex 
+          flex-col 
+          md:flex-row 
+          items-center 
+          justify-between 
+          gap-4 
+          pt-8
+        ">
 
-          <p className="text-steel text-xs">
+          <p className="text-steel text-xs text-center md:text-left">
             © {new Date().getFullYear()} YESU Brasil. Todos os direitos reservados.
           </p>
 
 
-          <p className="text-steel text-xs">
+          <p className="text-steel text-xs text-center md:text-left">
             Mobilidade Elétrica Premium · Made in Brazil
           </p>
 
