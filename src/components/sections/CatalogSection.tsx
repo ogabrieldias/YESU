@@ -85,7 +85,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       </div>
 
       {/* Content */}
-      <div className="p-8">
+      <div className="p-5 sm:p-8">
         {/* Category tag */}
         <p className="text-xs tracking-[0.3em] uppercase font-semibold mb-2" style={{ color: product.accentColor }}>
           {product.category === "urban" ? "Urbana" :
@@ -102,7 +102,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         <p className="text-steel text-sm mb-4">{product.tagline}</p>
 
         {/* Mini specs */}
-         <div className="grid grid-cols-3 gap-4 mb-6 p-6 rounded-xl bg-white/3 border border-white/5">
+         <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6 p-3 sm:p-6 rounded-xl bg-white/3 border border-white/5">
           {mainSpecs.map((spec) => (
             <div key={spec.label} className="text-center">
               <div className="text-white font-bold text-sm">
@@ -118,7 +118,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
          <div className="flex items-end justify-between mb-6">
           <div>
             <div className="text-steel text-xs mb-1">A partir de</div>
-            <div className="text-3xl font-black text-white">
+            <div className="text-2xl sm:text-3xl font-black text-white">
               {formatPrice(product.price)}
             </div>
             <div className="text-steel text-xs mt-1">
@@ -132,10 +132,10 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         </div>
 
         {/* CTAs */}
-         <div className="flex gap-4">
+         <div className="flex gap-2 sm:gap-4">
            <a
              href={`/produtos/${product.slug}`}
-            className="flex-1 flex items-center justify-center gap-2 py-4 px-8 rounded-xl border border-white/10 text-sm font-semibold text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 cursor-none ds-cta-primary"
+            className="flex-1 flex items-center justify-center gap-2 py-3 px-4 sm:py-4 sm:px-8 rounded-xl border border-white/10 text-sm font-semibold text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 cursor-none ds-cta-primary"
            >
              Ver Detalhes <ArrowRight size={14} />
            </a>
@@ -143,7 +143,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
              href={generateWhatsAppUrl(product.name)}
              target="_blank"
              rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 py-4 px-8 rounded-xl text-sm font-semibold text-white transition-all duration-300 cursor-none"
+            className="flex items-center justify-center gap-2 py-3 px-4 sm:py-4 sm:px-8 rounded-xl text-sm font-semibold text-white transition-all duration-300 cursor-none"
              style={{
                background: "#25D36620",
                border: "1px solid #25D36640",
@@ -247,7 +247,7 @@ export function CatalogSection() {
         {/* Product Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-12"
         >
           {featuredProducts.map((product, index) => (
             <div key={product.id} className="product-card-wrapper">

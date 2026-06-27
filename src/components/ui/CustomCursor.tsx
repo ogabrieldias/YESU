@@ -9,9 +9,21 @@ export function CustomCursor() {
   const cursorDotRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const { positionRef } = useMousePosition();
 
+  // Detect touch devices — run once on mount
   useEffect(() => {
+    const isTouch =
+      window.matchMedia("(pointer: coarse)").matches ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
+  }, []);
+
+  useEffect(() => {
+    if (isTouchDevice) return; // Skip cursor setup on mobile/touch
+
     const cursor = cursorRef.current;
     const dot = cursorDotRef.current;
     if (!cursor || !dot) return;
@@ -72,7 +84,7 @@ export function CustomCursor() {
       window.removeEventListener("mouseup", handleMouseUp);
       observer.disconnect();
     };
-  }, [positionRef]);
+  }, [positionRef, isTouchDevice]);
 
   // Animate cursor on state changes
   useEffect(() => {
@@ -84,6 +96,9 @@ export function CustomCursor() {
       ease: "power2.out",
     });
   }, [isHovering, isClicking]);
+
+  // Don't render cursor elements on touch devices
+  if (isTouchDevice) return null;
 
   return (
     <>

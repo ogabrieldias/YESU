@@ -64,7 +64,7 @@ export function Footer() {
 
       <div className="relative container-wide pt-20 pb-8">
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 pb-16 border-b border-white/5">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 sm:gap-16 pb-16 border-b border-white/5">
 
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -133,7 +133,7 @@ export function Footer() {
               Modelos
             </h4>
 
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-3 gap-2 sm:block sm:space-y-3">
 
               {footerLinks.modelos.map((link) => (
 

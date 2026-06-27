@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -22,6 +22,21 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
+  // Lock/unlock body scroll — uses class for reliable toggle
+  const lockScroll = useCallback(() => {
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.inset = "0";
+    document.body.style.width = "100%";
+  }, []);
+
+  const unlockScroll = useCallback(() => {
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.inset = "";
+    document.body.style.width = "";
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
@@ -40,33 +55,59 @@ export function Navbar() {
     );
   }, []);
 
-  // Mobile menu animation
+  // Mobile menu animation + scroll lock
   useEffect(() => {
     if (!mobileMenuRef.current) return;
     if (menuOpen) {
+      lockScroll();
+      gsap.set(mobileMenuRef.current, { display: "flex" });
       gsap.fromTo(
         mobileMenuRef.current,
         { opacity: 0, y: -20 },
         { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }
       );
-      document.body.style.overflow = "hidden";
     } else {
       gsap.to(mobileMenuRef.current, {
         opacity: 0,
         y: -20,
         duration: 0.3,
         ease: "power3.in",
+        onComplete: () => {
+          if (mobileMenuRef.current) {
+            gsap.set(mobileMenuRef.current, { display: "none" });
+          }
+        },
       });
-      document.body.style.overflow = "";
+      unlockScroll();
     }
+
+    // Cleanup: always unlock scroll when component unmounts or menuOpen changes
+    return () => {
+      unlockScroll();
+    };
+  }, [menuOpen, lockScroll, unlockScroll]);
+
+  // Auto-close menu when resizing to desktop
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (e.matches && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
   }, [menuOpen]);
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
+    // Small delay to let scroll unlock before scrolling
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 50);
   };
 
   return (
@@ -132,7 +173,7 @@ export function Navbar() {
             {/* Hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden text-white p-2 cursor-none"
+              className="lg:hidden text-white p-2 cursor-none relative z-50"
               aria-label="Toggle menu"
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -142,34 +183,34 @@ export function Navbar() {
       </nav>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div
-          ref={mobileMenuRef}
-          className="fixed inset-0 z-40 bg-void/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-8"
-        >
-          {navLinks.map((link, i) => (
-            <button
-              key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className="text-3xl font-bold text-white hover:text-electric transition-colors duration-300 cursor-none tracking-wider"
-              style={{ animationDelay: `${i * 0.05}s` }}
-            >
-              {link.label}
-            </button>
-          ))}
-          <MagneticButton
-            href={generateWhatsAppUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="primary"
-            size="lg"
-            className="mt-4"
+      {/* Mobile Menu — always in DOM, toggled via GSAP display */}
+      <div
+        ref={mobileMenuRef}
+        className="fixed inset-0 z-40 bg-void/98 backdrop-blur-2xl flex-col items-center justify-center gap-8"
+        style={{ display: "none" }}
+      >
+        {navLinks.map((link, i) => (
+          <button
+            key={link.href}
+            onClick={() => handleNavClick(link.href)}
+            className="text-3xl font-bold text-white hover:text-electric transition-colors duration-300 cursor-none tracking-wider"
+            style={{ animationDelay: `${i * 0.05}s` }}
           >
-            Falar no WhatsApp
-          </MagneticButton>
-        </div>
-      )}
+            {link.label}
+          </button>
+        ))}
+        <MagneticButton
+          href={generateWhatsAppUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          size="lg"
+          className="mt-4"
+        >
+          Falar no WhatsApp
+        </MagneticButton>
+      </div>
     </>
   );
 }
+

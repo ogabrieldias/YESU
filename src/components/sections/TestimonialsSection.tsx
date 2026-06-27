@@ -112,7 +112,7 @@ export function TestimonialsSection() {
           <div className="lg:col-span-2">
             <div
               ref={trackRef}
-              className="relative p-12 rounded-3xl border border-white/8 h-full ds-card"
+              className="relative p-5 sm:p-8 lg:p-12 rounded-3xl border border-white/8 h-full ds-card"
               style={{ background: "linear-gradient(145deg, #111111, #0d0d0d)" }}
             >
               {/* Quote icon */}
@@ -123,18 +123,18 @@ export function TestimonialsSection() {
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 {/* Avatar placeholder */}
-                <div className="w-14 h-14 rounded-full bg-graphite border border-white/10 flex items-center justify-center text-xl font-bold text-electric">
+                <div className="w-14 h-14 rounded-full bg-graphite border border-white/10 flex items-center justify-center text-xl font-bold text-electric shrink-0">
                   {current.name.charAt(0)}
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-white font-bold">{current.name}</div>
-                  <div className="text-steel text-sm">{current.role} · {current.city}</div>
+                  <div className="text-steel text-sm truncate">{current.role} · {current.city}</div>
                   <StarRating rating={current.rating} />
                 </div>
-                <div className="ml-auto text-right">
-                  <div className="text-electric text-2xl font-black">
+                <div className="sm:ml-auto text-left sm:text-right mt-2 sm:mt-0 shrink-0">
+                  <div className="text-electric text-xl sm:text-2xl font-black">
                     +{formatPrice(current.monthlyEconomy)}/mês
                   </div>
                   <div className="text-steel text-xs">economizados</div>
@@ -198,7 +198,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-3 sm:gap-8">
           {[
             { value: "98%", label: "Clientes satisfeitos" },
             { value: "4.9★", label: "Avaliação média" },
@@ -206,10 +206,10 @@ export function TestimonialsSection() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="text-center p-6 rounded-2xl border border-white/5 bg-obsidian"
+              className="text-center p-3 sm:p-6 rounded-2xl border border-white/5 bg-obsidian"
             >
-              <div className="text-3xl font-black text-electric mb-2">{stat.value}</div>
-              <div className="text-steel text-sm">{stat.label}</div>
+              <div className="text-xl sm:text-3xl font-black text-electric mb-2">{stat.value}</div>
+              <div className="text-steel text-xs sm:text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
