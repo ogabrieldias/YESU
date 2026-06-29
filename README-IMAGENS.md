@@ -247,6 +247,8 @@ Substituir Numero do Whatsapp:
 src/lib/utils.ts na linha 39
 export const WHATSAPP_NUMBER = "55000000000000"; // ⚠️ SUBSTITUA pelo número real da YESU Brasil
 
+src\app\layout.tsx
+Linha 132
 
 Alterar informações de telefone, e-mail e endereço no footer do catalogo
 

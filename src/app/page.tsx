@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero/HeroSection";
+import { HeroVideoWrapper } from "@/components/hero/HeroVideoWrapper";
+import { VideoTransitionSection } from "@/components/sections/VideoTransitionSection";
 import { MarqueeStrip } from "@/components/sections/MarqueeStrip";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { CatalogSection } from "@/components/sections/CatalogSection";
@@ -8,7 +10,6 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { Preloader } from "@/components/preloader/Preloader";
-import { ParticleBackgroundWrapper } from "@/components/three/ParticleBackgroundWrapper";
 
 export const metadata: Metadata = {
   title: "YESU Brasil | Mobilidade Elétrica Premium — Scooters Elétricos",
@@ -23,10 +24,10 @@ export default function HomePage() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="space-y-8 md:space-y-12">
-            <div className="relative  overflow-hidden border border-white/5 isolate bg-obsidian">
-              <ParticleBackgroundWrapper />
+            <HeroVideoWrapper>
               <HeroSection />
-            </div>
+              <VideoTransitionSection />
+            </HeroVideoWrapper>
 
             <MarqueeStrip />
             <ProblemSection />

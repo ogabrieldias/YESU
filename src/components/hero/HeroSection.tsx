@@ -4,31 +4,46 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
+
 import { MagneticButton } from "@/components/ui/MagneticButton";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 export function HeroSection() {
+
   const heroRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
+
   const contentRef = useRef<HTMLDivElement>(null);
 
+
   const taglineRef = useRef<HTMLParagraphElement>(null);
+
   const headlineRef = useRef<HTMLHeadingElement>(null);
+
   const ctaRef = useRef<HTMLDivElement>(null);
+
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
 
+
   useEffect(() => {
+
+
     const ctx = gsap.context(() => {
 
 
       /*
         IMPORTANTE PARA LCP:
-        O headline NÃO recebe opacity:0.
-        Ele aparece imediatamente.
+
+        O headline NÃO recebe opacity 0.
+        Ele renderiza imediatamente.
+
+        Apenas elementos secundários
+        recebem animação.
       */
+
 
       gsap.set(
         [
@@ -43,20 +58,32 @@ export function HeroSection() {
       );
 
 
-      const tl = gsap.timeline();
+
+      const timeline = gsap.timeline();
 
 
-      // Tagline
-      tl.to(taglineRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        ease: "power3.out",
-      });
+
+      /*
+        TAGLINE
+      */
+
+      timeline.to(
+        taglineRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+        }
+      );
 
 
-      // CTA
-      tl.to(
+
+      /*
+        CTA
+      */
+
+      timeline.to(
         ctaRef.current,
         {
           opacity: 1,
@@ -68,8 +95,12 @@ export function HeroSection() {
       );
 
 
-      // Scroll indicator
-      tl.to(
+
+      /*
+        SCROLL INDICATOR
+      */
+
+      timeline.to(
         scrollIndicatorRef.current,
         {
           opacity: 1,
@@ -84,64 +115,84 @@ export function HeroSection() {
 
       /*
         PARALLAX
+
+        Mantido apenas desktop.
       */
 
-      ScrollTrigger.create({
-        trigger: heroRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
 
-        onUpdate: (self) => {
-
-          if (videoRef.current) {
-            gsap.set(videoRef.current, {
-              y: self.progress * 150,
-            });
-          }
+      if (window.innerWidth >= 768) {
 
 
-          if (overlayRef.current) {
-            gsap.set(overlayRef.current, {
-              opacity:
-                0.4 + self.progress * 0.4,
-            });
-          }
+        ScrollTrigger.create({
+
+          trigger: heroRef.current,
+
+          start: "top top",
+
+          end: "bottom top",
+
+          scrub: true,
 
 
-          if (contentRef.current) {
-            gsap.set(contentRef.current, {
-              y:
-                self.progress * -80,
-              opacity:
-                1 - self.progress * 1.5,
-            });
-          }
-
-        },
-
-      });
+          onUpdate: (self) => {
 
 
+            if (contentRef.current) {
 
-      // Bounce scroll
+              gsap.set(
+                contentRef.current,
+                {
+                  y:
+                    self.progress * -80,
+
+                  opacity:
+                    1 - self.progress * 1.5,
+                }
+              );
+
+            }
+
+
+          },
+
+
+        });
+
+
+      }
+
+
+
+      /*
+        BOUNCE SCROLL
+      */
+
+
       gsap.to(
         scrollIndicatorRef.current,
         {
           y: 10,
+
           duration: 1.5,
+
           ease: "power1.inOut",
+
           repeat: -1,
+
           yoyo: true,
         }
       );
 
 
+
     }, heroRef);
 
 
+
     return () => {
+
       ctx.revert();
+
     };
 
 
@@ -149,15 +200,19 @@ export function HeroSection() {
 
 
 
+
   const scrollToNext = () => {
+
+
     const next =
       document.getElementById("marquee");
 
-    if (next) {
-      next.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+
+    next?.scrollIntoView({
+      behavior: "smooth",
+    });
+
+
   };
 
 
@@ -182,77 +237,47 @@ export function HeroSection() {
     >
 
 
-      {/* VIDEO */}
-
-      <video
-        ref={videoRef}
-        src="/videos/hero.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        className="
-          absolute
-          inset-0
-          w-full
-          h-full
-          object-cover
-        "
-        style={{
-          transform:"scale(1.1)",
-          willChange:"transform",
-        }}
-      />
 
 
 
-      {/* OVERLAY */}
+
+      {/* TOP ACCENT */}
 
       <div
-        ref={overlayRef}
         className="
           absolute
-          inset-0
+          top-0
+          left-0
+          right-0
+          h-px
+          bg-gradient-to-r
+          from-transparent
+          via-electric
+          to-transparent
+          opacity-60
         "
-        style={{
-          background:
-          "linear-gradient(to bottom, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.5) 50%, rgba(5,5,5,0.85) 100%)",
-
-          opacity:0.6,
-        }}
       />
 
 
 
-      {/* ACCENTS */}
 
-      <div className="
-        absolute
-        top-0
-        left-0
-        right-0
-        h-px
-        bg-gradient-to-r
-        from-transparent
-        via-electric
-        to-transparent
-        opacity-60
-      "/>
+      {/* BOTTOM ACCENT */}
 
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          right-0
+          h-px
+          bg-gradient-to-r
+          from-transparent
+          via-electric
+          to-transparent
+          opacity-30
+        "
+      />
 
-      <div className="
-        absolute
-        bottom-0
-        left-0
-        right-0
-        h-px
-        bg-gradient-to-r
-        from-transparent
-        via-electric
-        to-transparent
-        opacity-30
-      "/>
 
 
 
@@ -269,8 +294,7 @@ export function HeroSection() {
           mx-auto
         "
         style={{
-          willChange:
-          "transform, opacity",
+          willChange: "transform, opacity",
         }}
       >
 
@@ -292,26 +316,33 @@ export function HeroSection() {
           "
         >
 
-          <span className="
-            w-8
-            h-px
-            bg-electric
-          "/>
+          <span
+            className="
+              w-8
+              h-px
+              bg-electric
+            "
+          />
+
 
           Mobilidade Elétrica Premium
 
-          <span className="
-            w-8
-            h-px
-            bg-electric
-          "/>
+
+          <span
+            className="
+              w-8
+              h-px
+              bg-electric
+            "
+          />
 
         </p>
 
 
 
 
-        {/* H1 - ELEMENTO LCP */}
+
+        {/* HEADLINE */}
 
         <h1
           ref={headlineRef}
@@ -327,35 +358,44 @@ export function HeroSection() {
           "
           style={{
             textShadow:
-            "0 0 40px rgba(255,107,0,0.18)",
+              "0 0 40px rgba(255,107,0,0.18)",
           }}
         >
 
           Mude sua
+
           <br />
+
 
           <span
             className="text-gradient-electric"
             style={{
+
               background:
-              "linear-gradient(135deg,#FF6B00 0%,#FF8C00 50%,#FF6B00 100%)",
+                "linear-gradient(135deg,#FF6B00 0%,#FF8C00 50%,#FF6B00 100%)",
 
               WebkitBackgroundClip:
-              "text",
+                "text",
 
               WebkitTextFillColor:
-              "transparent",
+                "transparent",
 
               backgroundClip:
-              "text",
+                "text",
+
             }}
           >
+
             mobilidade
+
           </span>
+
 
           <br />
 
+
           para sempre.
+
 
         </h1>
 
@@ -378,20 +418,29 @@ export function HeroSection() {
         >
 
           <MagneticButton
+
             href="#catalogo"
+
             variant="primary"
+
             size="lg"
+
             id="hero-cta-primary"
-            onClick={()=>{
+
+            onClick={() => {
+
               document
-              .querySelector("#catalogo")
-              ?.scrollIntoView({
-                behavior:"smooth",
-              });
+                .querySelector("#catalogo")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                });
+
             }}
+
           >
 
             Conheça os Modelos
+
 
           </MagneticButton>
 
@@ -401,33 +450,37 @@ export function HeroSection() {
 
 
 
+
         {/* STATS */}
 
-        <div className="
-          flex
-          items-center
-          justify-center
-          gap-12
-          mt-5
-        ">
+        <div
+          className="
+            flex
+            items-center
+            justify-center
+            gap-12
+            mt-5
+          "
+        >
 
           {[
             {
-              value:"90%",
-              label:"Economia em combustível"
+              value: "90%",
+              label: "Economia em combustível",
             },
 
             {
-              value:"0",
-              label:"Emissões de CO₂"
+              value: "0",
+              label: "Emissões de CO₂",
             },
 
             {
-              value:"120km",
-              label:"Autonomia máxima"
+              value: "120km",
+              label: "Autonomia máxima",
             },
 
-          ].map((stat)=>(
+          ].map((stat) => (
+
             <div
               key={stat.label}
               className="
@@ -437,27 +490,38 @@ export function HeroSection() {
               "
             >
 
-              <div className="
-                text-2xl
-                font-black
-                text-electric
-              ">
+              <div
+                className="
+                  text-2xl
+                  font-black
+                  text-electric
+                "
+              >
+
                 {stat.value}
+
               </div>
 
 
-              <div className="
-                text-steel
-                text-xs
-                tracking-wider
-                uppercase
-                mt-1
-              ">
+
+              <div
+                className="
+                  text-steel
+                  text-xs
+                  tracking-wider
+                  uppercase
+                  mt-1
+                "
+              >
+
                 {stat.label}
+
               </div>
 
 
             </div>
+
+
           ))}
 
 
@@ -467,14 +531,11 @@ export function HeroSection() {
 
       </div>
 
-
-
-
-
-      {/* SCROLL */}
+            {/* SCROLL INDICATOR */}
 
       <div
         ref={scrollIndicatorRef}
+        onClick={scrollToNext}
         className="
           absolute
           bottom-10
@@ -484,30 +545,38 @@ export function HeroSection() {
           flex-col
           items-center
           gap-2
-          cursor-none
+          cursor-pointer
         "
-        onClick={scrollToNext}
       >
 
-        <span className="
-          text-steel
-          text-[10px]
-          tracking-[0.3em]
-          uppercase
-        ">
+        <span
+          className="
+            text-steel
+            text-[10px]
+            tracking-[0.3em]
+            uppercase
+          "
+        >
+
           Scroll
+
         </span>
+
 
 
         <ChevronDown
           size={16}
           className="text-electric"
+          aria-hidden="true"
         />
 
+
       </div>
+
 
 
     </section>
 
   );
+
 }
