@@ -7,7 +7,9 @@ interface HeroVideoWrapperProps {
   children: React.ReactNode;
 }
 
-export function HeroVideoWrapper({ children }: HeroVideoWrapperProps) {
+export function HeroVideoWrapper({
+  children,
+}: HeroVideoWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -51,7 +53,7 @@ export function HeroVideoWrapper({ children }: HeroVideoWrapperProps) {
             },
           });
 
-          // 2. Animação de Revelação de Overlay (rgba(5,5,5,0.65) -> rgba(5,5,5,0.25))
+          // 2. Animação de Revelação de Overlay
           // O vídeo se torna gradualmente mais nítido e presente
           gsap.to(overlayRef.current, {
             backgroundColor: "rgba(5, 5, 5, 0.25)",
@@ -65,14 +67,19 @@ export function HeroVideoWrapper({ children }: HeroVideoWrapperProps) {
           });
         }, containerRef);
       } catch (error) {
-        console.error("Failed to load GSAP in HeroVideoWrapper:", error);
+        console.error(
+          "Failed to load GSAP in HeroVideoWrapper:",
+          error
+        );
       }
     };
 
     initGSAP();
 
     return () => {
-      if (ctx) ctx.revert();
+      if (ctx) {
+        ctx.revert();
+      }
     };
   }, []);
 
@@ -106,7 +113,7 @@ export function HeroVideoWrapper({ children }: HeroVideoWrapperProps) {
           absolute
           inset-0
           w-full
-          h-[120%] /* Taller than the container to allow seamless parallax movement */
+          h-[120%]
           object-cover
           z-0
           pointer-events-none

@@ -137,18 +137,24 @@ html.lenis, html.lenis body {
 }
 
 /* Gradient text */
+/* display: inline-block is required for background-clip: text to work
+   correctly on mobile Safari and Chrome (does not apply to inline elements) */
 .text-gradient {
+  display: inline-block;
   background: linear-gradient(135deg, #ffffff 0%, #c0c0c0 50%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
 .text-gradient-electric {
+  display: inline-block;
   background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 50%, #ff6b00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
 /* Design system utilities */

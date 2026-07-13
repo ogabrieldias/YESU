@@ -198,10 +198,12 @@ export function CalculatorSection() {
             Calcule sua{" "}
             <span
               style={{
+                display: "inline-block",
                 background: "linear-gradient(135deg, #FF6B00, #FF8C00)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
               }}
             >
               economia real

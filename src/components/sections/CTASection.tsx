@@ -122,10 +122,12 @@ export function CTASection() {
           Pronto para{" "}
           <span
             style={{
+              display: "inline-block",
               background: "linear-gradient(135deg, #FF6B00 0%, #FF8C00 50%, #FF6B00 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              color: "transparent",
             }}
           >
             economizar

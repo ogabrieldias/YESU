@@ -149,10 +149,12 @@ export function ProblemSection() {
             Quanto você perde{" "}
             <span
               style={{
+                display: "inline-block",
                 background: "linear-gradient(135deg, #FF4444, #FF6B00)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
               }}
             >
               por ano

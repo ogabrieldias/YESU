@@ -237,10 +237,6 @@ export function HeroSection() {
     >
 
 
-
-
-
-
       {/* TOP ACCENT */}
 
       <div
@@ -279,9 +275,6 @@ export function HeroSection() {
       />
 
 
-
-
-
       {/* CONTENT */}
 
       <div
@@ -292,12 +285,13 @@ export function HeroSection() {
           text-center
           max-w-6xl
           mx-auto
+          pt-20
+          sm:pt-24
         "
         style={{
           willChange: "transform, opacity",
         }}
       >
-
 
 
         {/* TAGLINE */}
@@ -368,9 +362,8 @@ export function HeroSection() {
 
 
           <span
-            className="text-gradient-electric"
             style={{
-
+              display: "inline-block",
               background:
                 "linear-gradient(135deg,#FF6B00 0%,#FF8C00 50%,#FF6B00 100%)",
 
@@ -382,6 +375,9 @@ export function HeroSection() {
 
               backgroundClip:
                 "text",
+
+              color:
+                "transparent",
 
             }}
           >
@@ -533,7 +529,7 @@ export function HeroSection() {
 
             {/* SCROLL INDICATOR */}
 
-      <div
+      {/* <div
         ref={scrollIndicatorRef}
         onClick={scrollToNext}
         className="
@@ -571,7 +567,7 @@ export function HeroSection() {
         />
 
 
-      </div>
+      </div> */}
 
 
 

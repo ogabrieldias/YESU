@@ -176,11 +176,15 @@ export function Preloader() {
       <div
         style={{
           position: "absolute",
-          width: 250,
-          height: 250,
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: 300,
+          height: 300,
           background:
             "radial-gradient(circle, rgba(255,107,0,.18), transparent 70%)",
           borderRadius: "50%",
+          pointerEvents: "none",
         }}
       />
 
