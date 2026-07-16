@@ -481,8 +481,6 @@ export function HeroSection() {
               key={stat.label}
               className="
                 text-center
-                hidden
-                sm:block
               "
             >
 
