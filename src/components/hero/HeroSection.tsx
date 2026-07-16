@@ -334,7 +334,7 @@ export function HeroSection() {
 
 
 
-        ;
+        
         {/* STATS */}
         <div
           className="
