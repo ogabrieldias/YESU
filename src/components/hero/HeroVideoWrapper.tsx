@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ParticleBackgroundWrapper } from "@/components/three/ParticleBackgroundWrapper";
 
 interface HeroVideoWrapperProps {
@@ -13,6 +13,26 @@ export function HeroVideoWrapper({
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+
+  // Define qual vídeo será usado
+  const [videoSrc, setVideoSrc] = useState("/videos/hero.mp4");
+
+  useEffect(() => {
+    const updateVideoSource = () => {
+      const isMobile = window.innerWidth < 768;
+      setVideoSrc(
+        isMobile ? "/videos/hero2916.mp4" : "/videos/hero.mp4"
+      );
+    };
+
+    updateVideoSource();
+
+    window.addEventListener("resize", updateVideoSource);
+
+    return () => {
+      window.removeEventListener("resize", updateVideoSource);
+    };
+  }, []);
 
   useEffect(() => {
     let ctx: any;
@@ -101,9 +121,10 @@ export function HeroVideoWrapper({
 
       {/* VÍDEO BACKGROUND CONTÍNUO */}
       <video
+        key={videoSrc}
         ref={videoRef}
-        src="/videos/hero.mp4"
-        poster="/images/hero-poster.webp"
+        src={videoSrc}
+        // poster="/images/hero-poster.webp PRECISO COLOCAR ESSA IMAGEM"
         autoPlay
         muted
         loop
