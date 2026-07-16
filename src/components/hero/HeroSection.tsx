@@ -7,33 +7,20 @@ import { ChevronDown } from "lucide-react";
 
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
-
 export function HeroSection() {
-
   const heroRef = useRef<HTMLElement>(null);
-
   const contentRef = useRef<HTMLDivElement>(null);
-
-
   const taglineRef = useRef<HTMLParagraphElement>(null);
-
   const headlineRef = useRef<HTMLHeadingElement>(null);
-
   const ctaRef = useRef<HTMLDivElement>(null);
-
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-
-
 
   useEffect(() => {
 
 
     const ctx = gsap.context(() => {
-
-
       /*
         IMPORTANTE PARA LCP:
 
@@ -43,7 +30,6 @@ export function HeroSection() {
         Apenas elementos secundários
         recebem animação.
       */
-
 
       gsap.set(
         [
@@ -57,16 +43,11 @@ export function HeroSection() {
         }
       );
 
-
-
       const timeline = gsap.timeline();
-
-
 
       /*
         TAGLINE
       */
-
       timeline.to(
         taglineRef.current,
         {
@@ -78,11 +59,9 @@ export function HeroSection() {
       );
 
 
-
       /*
         CTA
       */
-
       timeline.to(
         ctaRef.current,
         {
@@ -99,7 +78,6 @@ export function HeroSection() {
       /*
         SCROLL INDICATOR
       */
-
       timeline.to(
         scrollIndicatorRef.current,
         {
@@ -112,33 +90,20 @@ export function HeroSection() {
       );
 
 
-
       /*
         PARALLAX
 
         Mantido apenas desktop.
       */
-
-
       if (window.innerWidth >= 768) {
 
-
         ScrollTrigger.create({
-
           trigger: heroRef.current,
-
           start: "top top",
-
           end: "bottom top",
-
           scrub: true,
-
-
           onUpdate: (self) => {
-
-
             if (contentRef.current) {
-
               gsap.set(
                 contentRef.current,
                 {
@@ -149,16 +114,9 @@ export function HeroSection() {
                     1 - self.progress * 1.5,
                 }
               );
-
             }
-
-
           },
-
-
         });
-
-
       }
 
 
@@ -166,53 +124,30 @@ export function HeroSection() {
       /*
         BOUNCE SCROLL
       */
-
-
       gsap.to(
         scrollIndicatorRef.current,
         {
           y: 10,
-
           duration: 1.5,
-
           ease: "power1.inOut",
-
           repeat: -1,
-
           yoyo: true,
         }
       );
-
-
-
     }, heroRef);
 
-
-
     return () => {
-
       ctx.revert();
-
     };
-
-
   }, []);
 
-
-
-
   const scrollToNext = () => {
-
-
     const next =
       document.getElementById("marquee");
-
 
     next?.scrollIntoView({
       behavior: "smooth",
     });
-
-
   };
 
 
@@ -238,7 +173,6 @@ export function HeroSection() {
 
 
       {/* TOP ACCENT */}
-
       <div
         className="
           absolute
@@ -255,10 +189,7 @@ export function HeroSection() {
       />
 
 
-
-
       {/* BOTTOM ACCENT */}
-
       <div
         className="
           absolute
@@ -276,7 +207,6 @@ export function HeroSection() {
 
 
       {/* CONTENT */}
-
       <div
         ref={contentRef}
         className="
@@ -293,9 +223,7 @@ export function HeroSection() {
         }}
       >
 
-
         {/* TAGLINE */}
-
         <p
           ref={taglineRef}
           className="
@@ -309,7 +237,6 @@ export function HeroSection() {
             uppercase
           "
         >
-
           <span
             className="
               w-8
@@ -317,11 +244,7 @@ export function HeroSection() {
               bg-electric
             "
           />
-
-
           Mobilidade Elétrica Premium
-
-
           <span
             className="
               w-8
@@ -329,7 +252,6 @@ export function HeroSection() {
               bg-electric
             "
           />
-
         </p>
 
 
@@ -355,49 +277,28 @@ export function HeroSection() {
               "0 0 40px rgba(255,107,0,0.18)",
           }}
         >
-
           Mude sua
-
           <br />
-
-
           <span
             style={{
               display: "inline-block",
               background:
                 "linear-gradient(135deg,#FF6B00 0%,#FF8C00 50%,#FF6B00 100%)",
-
               WebkitBackgroundClip:
                 "text",
-
               WebkitTextFillColor:
                 "transparent",
-
               backgroundClip:
                 "text",
-
               color:
                 "transparent",
-
             }}
           >
-
             mobilidade
-
           </span>
-
-
           <br />
-
-
           para sempre.
-
-
         </h1>
-
-
-
-
 
         {/* CTA */}
 
@@ -414,76 +315,66 @@ export function HeroSection() {
         >
 
           <MagneticButton
-
             href="#catalogo"
-
             variant="primary"
-
             size="lg"
-
             id="hero-cta-primary"
-
             onClick={() => {
-
               document
                 .querySelector("#catalogo")
                 ?.scrollIntoView({
                   behavior: "smooth",
                 });
-
             }}
-
           >
-
             Conheça os Modelos
-
-
           </MagneticButton>
-
-
         </div>
 
 
 
 
-
+        ;
         {/* STATS */}
-
         <div
           className="
-            flex
-            items-center
-            justify-center
-            gap-12
-            mt-5
+            mt-8
+            grid
+            grid-cols-2
+            gap-y-6
+            gap-x-8
+            justify-items-center
+            sm:flex
+            sm:items-center
+            sm:justify-center
+            sm:gap-12
           "
         >
-
           {[
             {
               value: "90%",
               label: "Economia em combustível",
             },
-
             {
               value: "0",
               label: "Emissões de CO₂",
             },
-
             {
               value: "120km",
               label: "Autonomia máxima",
             },
-
-          ].map((stat) => (
-
+          ].map((stat, index) => (
             <div
               key={stat.label}
-              className="
+              className={`
                 text-center
-              "
+                ${
+                  index === 2
+                    ? "col-span-2 justify-self-center sm:col-auto sm:justify-self-auto"
+                    : ""
+                }
+              `}
             >
-
               <div
                 className="
                   text-2xl
@@ -491,12 +382,8 @@ export function HeroSection() {
                   text-electric
                 "
               >
-
                 {stat.value}
-
               </div>
-
-
 
               <div
                 className="
@@ -505,27 +392,19 @@ export function HeroSection() {
                   tracking-wider
                   uppercase
                   mt-1
+                  max-w-[120px]
+                  sm:max-w-none
                 "
               >
-
                 {stat.label}
-
               </div>
-
-
             </div>
-
-
           ))}
-
-
         </div>
-
-
 
       </div>
 
-            {/* SCROLL INDICATOR */}
+      {/* SCROLL INDICATOR */}
 
       {/* <div
         ref={scrollIndicatorRef}
@@ -542,7 +421,6 @@ export function HeroSection() {
           cursor-pointer
         "
       >
-
         <span
           className="
             text-steel
@@ -551,20 +429,13 @@ export function HeroSection() {
             uppercase
           "
         >
-
           Scroll
-
         </span>
-
-
-
         <ChevronDown
           size={16}
           className="text-electric"
           aria-hidden="true"
         />
-
-
       </div> */}
 
 
